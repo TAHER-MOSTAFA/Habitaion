@@ -1,0 +1,7 @@
+# PostgreSQL
+# ------------------------------------------------------------------------------
+POSTGRES_HOST=postgres
+POSTGRES_PORT=5432
+POSTGRES_DB=habitation
+POSTGRES_USER=gaaQdKBKGkUVVRhKGklDCKtEFEimHORg
+POSTGRES_PASSWORD=Ivuckr0nRXsPmSQFSHn0PJRlYN9WgSn4iLiT1SCDnS1uxWI5zbhI2sJ8VJhwNcd2
