@@ -19,6 +19,8 @@ urlpatterns = [
     # User management
     path("users/", include("habitation.users.urls", namespace="users")),
     path("accounts/", include("allauth.urls")),
+    path("auth/", include('djoser.urls')),
+    path("auth/", include('djoser.urls.authtoken')),
     # Your stuff: custom urls includes go here
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 if settings.DEBUG:
@@ -28,7 +30,7 @@ if settings.DEBUG:
 # API URLS
 urlpatterns += [
     # API base url
-    path("api/", include("config.api_router")),
+    # path("api/", include("config.api_router")),
     # DRF auth token
     path("auth-token/", obtain_auth_token),
     path("api/schema/", SpectacularAPIView.as_view(), name="api-schema"),

@@ -14,7 +14,7 @@ class UserViewSet(RetrieveModelMixin, ListModelMixin, UpdateModelMixin, GenericV
     permission_classes = (AllowAny,)
     serializer_class = UserSerializer
     queryset = User.objects.all()
-    lookup_field = "username"
+    lookup_field = "email"
 
     def get_queryset(self, *args, **kwargs):
         assert isinstance(self.request.user.id, int)
