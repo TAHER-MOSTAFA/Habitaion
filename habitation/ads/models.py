@@ -40,3 +40,11 @@ class Spec(TimeStampedModel):
 class Image(models.Model):
     image = models.ImageField()
     ad = models.ForeignKey(AD, on_delete=models.CASCADE)
+    
+class Plan(models.Model):
+    ad = models.ForeignKey(AD, on_delete=models.CASCADE)
+    first_intallemnt = models.PositiveIntegerField()
+    monthly_intallemnt = models.PositiveIntegerField()
+    duration = models.PositiveIntegerField()
+    interest_rate = models.PositiveIntegerField()
+
