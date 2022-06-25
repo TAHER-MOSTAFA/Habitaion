@@ -27,13 +27,13 @@ class AD(TimeStampedModel):
     type = models.CharField(choices=AD_TYPES, max_length=10)
     diriction = models.CharField(max_length=10)
     location = models.PointField()
-    # images = ArrayField(models.ImageField(), size=30)
 
     area = models.PositiveIntegerField(validators=[MinValueValidator(1)])
     baths_no = models.PositiveIntegerField(validators=[MinValueValidator(1)])
     bed_rooms_no = models.PositiveIntegerField(validators=[MinValueValidator(1)])
 
-
+    def __str__(self) -> str:
+        return self.name
 
 class Spec(TimeStampedModel):
     label = models.CharField(max_length=15)

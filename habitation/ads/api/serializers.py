@@ -12,10 +12,16 @@ class LocationPointSerializer(serializers.Field):
     def to_internal_value(self, data):
         return Point(json_loads(data))
 
+class DistanceSerializer(serializers.Field):
+    def to_representation(self, value):
+        return "{:.2f}".format(value.km)
+
+
 class ADSerializer(serializers.ModelSerializer):
     images = serializers.ListField(child=serializers.ImageField(), write_only=True)
     location = LocationPointSerializer()
     lord = serializers.HiddenField(default=serializers.CurrentUserDefault())
+    distance = DistanceSerializer(source='distance.km', required=False, read_only=True)
     
     class Meta:
         model = AD
