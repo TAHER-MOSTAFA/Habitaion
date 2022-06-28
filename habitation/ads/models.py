@@ -13,7 +13,13 @@ class AD(TimeStampedModel):
         'Apartment',
         'Villa',
         'Studio',
-        'Room',        
+        'Room',
+        'Home',
+        'Hotel',
+        'Apartment',
+        'Office',
+        'Flat',
+        'Palace',    
     )    
 
     lord = models.ForeignKey(User, on_delete=models.CASCADE)

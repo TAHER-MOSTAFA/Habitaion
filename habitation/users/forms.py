@@ -40,3 +40,63 @@ class UserSocialSignupForm(SocialSignupForm):
     Default fields will be added automatically.
     See UserSignupForm otherwise.
     """
+    
+import re
+
+from django import forms
+from django.conf import settings
+from django.forms import widgets
+from django.utils import timezone
+from django.utils.translation import ugettext_lazy as _
+
+from .models import User
+
+
+class SelectDateWidget(widgets.SelectDateWidget):
+    none_value = ('', '----')
+
+
+class SignupForm(forms.ModelForm):
+
+    class Meta:
+        model = User
+
+        fields = ('email', )
+
+        widgets = {
+            'email': forms.EmailInput(),
+        }
+
+        labels = {
+            'email': _('E-mail address'),
+        }
+
+    def __init__(self, *args, **kwargs):
+
+        super(SignupForm, self).__init__(*args, **kwargs)
+        self.fields['email'].widget.attrs.update({'class': 'form-control', 'required': ''})
+
+
+    def clean_password2(self):
+        password1 = self.cleaned_data.get('password1')
+        password2 = self.cleaned_data.get('password2')
+
+        if password1 and password2:
+
+            if password1 != password2:
+                raise forms.ValidationError(
+                    _("You must type the same password each time."))
+            elif re.match('^[a-z]*$', password2):
+                raise forms.ValidationError(
+                    _('Password must contain at least one non-lower-case character.'))
+            elif re.match('^[A-Z]*$', password2):
+                raise forms.ValidationError(
+                    _('Password must contain at least one non-upper-case character.'))
+
+        return self.cleaned_data['password2']
+
+    def signup(self, request, user):
+        # README: this is a simple hack for django-allauth to avoid
+        # saving the user twice
+        # https://github.com/pennersr/django-allauth/issues/607
+        pass
