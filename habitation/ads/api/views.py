@@ -11,7 +11,7 @@ class ADViewSet(ModelViewSet):
     filter_fields = {"name", ""}
     def get_queryset(self):
         filters = dict()
-        data = self.request.data
+        data = self.request.query_params
         
         qs =  AD.objects.filter(available=True)
 
