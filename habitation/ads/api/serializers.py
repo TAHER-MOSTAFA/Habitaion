@@ -5,12 +5,13 @@ from django.contrib.gis.geos import Point
 from json import loads as json_loads
 
 
-class LocationPointSerializer(serializers.Field):
+class LocationPointSerializer(serializers.ListField):
     def to_representation(self, value):
         return value.coords
 
-    def to_internal_value(self, data):
-        return Point(json_loads(data))
+    def to_internal_value(self, *args, **kwargs):
+        data = super().to_internal_value(*args, **kwargs)
+        return Point(data)
 
 class DistanceSerializer(serializers.Field):
     def to_representation(self, value):
@@ -19,7 +20,7 @@ class DistanceSerializer(serializers.Field):
 
 class ADSerializer(serializers.ModelSerializer):
     images = serializers.ListField(child=serializers.ImageField(), write_only=True)
-    location = LocationPointSerializer()
+    location = LocationPointSerializer(child=serializers.DecimalField(max_digits=10, decimal_places=2   ))
     lord = serializers.HiddenField(default=serializers.CurrentUserDefault())
     distance = DistanceSerializer(source='distance.km', required=False, read_only=True)
     
