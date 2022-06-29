@@ -58,3 +58,8 @@ class Plan(models.Model):
     duration = models.PositiveIntegerField()
     interest_rate = models.PositiveIntegerField()
 
+
+class Favourites(TimeStampedModel):
+    ad = models.ForeignKey(AD, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    

@@ -1,5 +1,5 @@
 import json
-from habitation.ads.models import AD, Image
+from habitation.ads.models import AD, Favourites, Image
 from rest_framework import serializers
 from django.contrib.gis.geos import Point
 from json import loads as json_loads
@@ -44,3 +44,14 @@ class ADSerializer(serializers.ModelSerializer):
             images = [img.image.url for img in images]
         )
         return data
+
+class FavouriteSerializerCreate(serializers.ModelSerializer):
+    user = serializers.HiddenField(default=serializers.CurrentUserDefault())
+    ad_id = serializers.PrimaryKeyRelatedField(queryset=AD.objects, write_only=True)
+    ad = ADSerializer(read_only=True)
+    class Meta:
+        model = Favourites
+        fields = ['id', 'user', 'ad_id', 'ad', ]
+    
+    def create(self, validated_data):
+        return Favourites.objects.create(user=validated_data['user'], ad=validated_data['ad_id'])

@@ -1,10 +1,11 @@
-from rest_framework.viewsets import ModelViewSet
-from habitation.ads.models import AD
-from .serializers import ADSerializer
-from .permissions import OwnAdOrReadOnly
-
+from rest_framework.viewsets import ModelViewSet, GenericViewSet
+from habitation.ads.models import AD, Favourites
+from .serializers import ADSerializer, FavouriteSerializerCreate
+from .permissions import OwnAdOrReadOnly, OwnFavouriteOrReadOnly
+from rest_framework import mixins
 from django.contrib.gis.geos import Point
 from django.contrib.gis.db.models.functions import Distance
+
 
 ADS_WITHIN = 10000 # 10 KM
 class ADViewSet(ModelViewSet):
@@ -39,4 +40,19 @@ class ADViewSet(ModelViewSet):
     permission_classes = [OwnAdOrReadOnly]
 
     serializer_class = ADSerializer
+from rest_framework import status
+from rest_framework.response import Response
+
+class FavouriteView(mixins.ListModelMixin, mixins.DestroyModelMixin, mixins.CreateModelMixin, GenericViewSet):
+    permission_classes = [OwnFavouriteOrReadOnly]
     
+    # def get_serializer_class(self):
+    #     if self.action == 'create':
+    #         return FavouriteSerializerCreate
+    #     else:
+    #         return ADSerializer
+    serializer_class = FavouriteSerializerCreate
+    
+    def get_queryset(self):
+        # return AD.objects.prefetch_related('favourites_set').filter(favourites__user_id=self.request.user.id)
+        return Favourites.objects.select_related('ad').filter(user=self.request.user).order_by('-created')
