@@ -10,17 +10,20 @@ from .serializers import UserSerializer
 User = get_user_model()
 
 
-class UserViewSet(RetrieveModelMixin, ListModelMixin, UpdateModelMixin, GenericViewSet):
+class UserViewSet(UpdateModelMixin, GenericViewSet):
     permission_classes = (AllowAny,)
     serializer_class = UserSerializer
     queryset = User.objects.all()
-    lookup_field = "email"
+    lookup_field = None
 
-    def get_queryset(self, *args, **kwargs):
+    def get_object(self):
         assert isinstance(self.request.user.id, int)
-        return self.queryset.filter(id=self.request.user.id)
+        return self.queryset.get(id=self.request.user.id)
 
-    @action(detail=False)
+    @action(methods=['PATCH', 'GET'], detail=False)
     def me(self, request):
+        if request.method == 'PATCH':
+            return self.partial_update(request)
         serializer = UserSerializer(request.user, context={"request": request})
         return Response(status=status.HTTP_200_OK, data=serializer.data)
+

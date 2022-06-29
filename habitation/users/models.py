@@ -24,6 +24,7 @@ class User(AbstractUser):
             'unique': _("A user with that email already exists."),
         },
     )
+    image = models.ImageField(blank=True, null=True, upload_to='users_imgs')
     first_name = None  # type: ignore
     last_name = None  # type: ignore
     USERNAME_FIELD = 'email'
