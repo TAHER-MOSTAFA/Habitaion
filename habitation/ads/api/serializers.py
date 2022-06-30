@@ -15,14 +15,16 @@ class LocationPointSerializer(serializers.ListField):
 
 class DistanceSerializer(serializers.Field):
     def to_representation(self, value):
-        return "{:.2f}".format(value.km)
+        print(value, type(value))
+        return "{:.2f}".format(value)
 
 
 class ADSerializer(serializers.ModelSerializer):
     images = serializers.ListField(child=serializers.ImageField(), write_only=True)
-    location = LocationPointSerializer(child=serializers.DecimalField(max_digits=10, decimal_places=2   ))
+    location = LocationPointSerializer(child=serializers.DecimalField(max_digits=20, decimal_places=5))
     lord = serializers.HiddenField(default=serializers.CurrentUserDefault())
     distance = DistanceSerializer(source='distance.km', required=False, read_only=True)
+    is_fav = serializers.BooleanField(read_only=True)
     
     class Meta:
         model = AD
@@ -49,7 +51,7 @@ class ADSerializer(serializers.ModelSerializer):
 class FavouriteSerializerCreate(serializers.ModelSerializer):
     user = serializers.HiddenField(default=serializers.CurrentUserDefault())
     ad_id = serializers.PrimaryKeyRelatedField(queryset=AD.objects, write_only=True)
-    ad = ADSerializer(read_only=True)
+    ad = ADSerializer(read_only=True, required=False)
     class Meta:
         model = Favourites
         fields = ['id', 'user', 'ad_id', 'ad', ]

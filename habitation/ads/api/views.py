@@ -5,19 +5,21 @@ from .permissions import OwnAdOrReadOnly, OwnFavouriteOrReadOnly
 from rest_framework import mixins
 from django.contrib.gis.geos import Point
 from django.contrib.gis.db.models.functions import Distance
-
+from django.db.models import Exists, OuterRef
+from json import loads as js_loads
 
 ADS_WITHIN = 10000 # 10 KM
 class ADViewSet(ModelViewSet):
-    filter_fields = {"name", ""}
+
+
     def get_queryset(self):
         filters = dict()
         data = self.request.query_params
         
-        qs =  AD.objects.filter(available=True)
+        qs =  AD.objects.filter(available=True).annotate(is_fav=Exists(Favourites.objects.filter(user=self.request.user, ad_id=OuterRef("id"))))
 
         if data.get("name"):
-            filters['name__contains'] = str(data['name'])
+            filters['name__icontains'] = str(data['name'])
         if data.get("price_min"):
             filters['price__gte'] = int(data['price_min'])
         if data.get("price_max"):
@@ -27,7 +29,7 @@ class ADViewSet(ModelViewSet):
         if data.get("rooms"):
             filters['bed_rooms_no'] = int(data['rooms'])
         if data.get('location'):
-            pt = Point(data['location'])
+            pt = Point(js_loads(data['location']))
             filters['location__distance_lte'] = (
                 pt,
                 data.get("within", ADS_WITHIN)
