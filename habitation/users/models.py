@@ -25,6 +25,8 @@ class User(AbstractUser):
         },
     )
     image = models.ImageField(blank=True, null=True, upload_to='users_imgs')
+    city = models.CharField(blank=True, null=True, max_length=25)
+    phone_number = models.CharField(blank=True, null=True, max_length=11)
     first_name = None  # type: ignore
     last_name = None  # type: ignore
     USERNAME_FIELD = 'email'

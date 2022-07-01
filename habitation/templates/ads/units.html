@@ -1,0 +1,326 @@
+{% load static %}
+{% get_static_prefix as STATIC_PREFIX %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="{{STATIC_PREFIX}}css/bootstrap.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" href="{{STATIC_PREFIX}}css/style1.css">
+	<link rel="stylesheet" href="{{STATIC_PREFIX}}css/font-awesome.min.css">
+</head>
+<body>
+  <!-- start header -->
+    <nav class="navbar navbar-expand-lg">
+       <a class="navbar-brand" href="#"> Habitation</a>
+       <button class="navbar-toggler btn-dark" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+       <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
+         <div class="navbar-nav">
+           <a class="nav-link" href="#">HomePage</a>
+           <a class="nav-link" href="#">About Us</a>
+           <a class="nav-link" href="#">For Rent</a>
+           <a class="nav-link" href="#">For Sale</a>
+           <a class="nav-link" href="#">Our Agents</a>
+           <a class="nav-link" href="#">Contact Us</a>
+         </div>
+       </div>
+       <div class="user form-inline">
+       	  <a href="#"><i class="fa fa-bell fa-lg mr-5 mb-1" aria-hidden="true"></i></a>
+       	  <img class=" img-icon rounded-circle" src="{{STATIC_PREFIX}}images/download.jpg">
+          <a href="#">Ahmed</a>
+       </div>
+    </nav>
+<!-- end header -->
+   <section>
+    <div class="container">
+    	<div class="properties">
+    	   <div class="row">
+             <div class="col">	
+    	       <h6>properties</h6>
+    	     </div>
+             <div class="col d-flex justify-content-end">
+    	      <button type="button" class="btn btn-info">  <i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i>  Add Property</button>
+    	     </div>
+           </div>
+        </div>
+    </div>
+   </section>
+<!-- start of filter-->
+    <section>
+    	<div class="container">
+    		<div class="filter shadow p-3 mb-5 bg-white rounded">
+    			<div class="row">
+    				<div class="col-3"><h6>Price</h6> </div>
+    				<div class="col-3"><h6>Area</h6></div>
+    				<div class="col-6 d-flex justify-content-end" id="mainbox" onclick="openFunction()">Adavanced filters</a></div>
+                    <!-- start advanced filter-->
+    				<div class="AFilter">
+                      <div id="menu" class="sidemenu">
+                        <h5>Advanced Filters</h5>
+                        <hr>
+                        <form class="filter1" action="£">
+                           <div class="row">
+                               <div class="col-6">
+                                   <h6>Price</h6>
+                                 <div class="form-row">
+                                    <div class="col">
+                                       <label>Form</label>
+                                      <input type="text" name="price_min" class="form-control">
+                                    </div>
+                                    <div class="col">
+                                       <label>To</label>
+                                      <input type="text" name="price_max" class="form-control">
+                                    </div>
+                                  </div>
+                               </div>
+                           </div>
+
+                           <div class="row">
+                               <div class="col-6">
+                                   <h6>Area</h6>
+                                 <div class="form-row">
+                                    <div class="col">
+                                       <label>Form</label>
+                                      <input type="text" class="form-control">
+                                    </div>
+                                    <div class="col">
+                                       <label>To</label>
+                                      <input type="text" class="form-control">
+                                    </div>
+                                  </div>
+                               </div>
+                           </div>
+
+                           <div class="row">
+                               <div class="col-6">
+                                    <label>Room NO</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                                <div class="col-6">
+                                     <label>Floor No</label>
+                                      <input type="text" class="form-control right-input">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-6">
+                                     <label>No of bathrooms</label>
+                                     <input type="text" class="form-control">
+                                </div>
+                                <div class="col-6">
+                                       <label>Direction</label>
+                                        <input type="text" class="form-control right-input">
+                                  </div>
+                              </div>
+
+                              <div class="row">
+                                  <div class="col-6">
+                                       <label>Phases</label>
+                                       <input type="text" class="form-control">
+                                  </div>
+                                  <div class="col-6">
+                                       <label>Location</label>
+                                        <input type="text" class="form-control right-input">
+                                  </div>
+                              </div>
+                              <hr><button type="button" class="btn btn-outline-dark btn1" onclick="closeFunction()">Cancel</button>
+                              <button type="button" class="btn btn-info btn2">Save</button>
+                    </form>
+                    <a href="" class="closebtn" onclick="closeFunction()"><i class="fa fa-times" aria-hidden="true"></i></a>
+                 </div>
+              </div>
+    		</div>
+    		  <!-- end of advanced filter -->
+    		   <form>
+                  <div class="form-row">
+                    <div class="col">
+                    	<div class="row">
+                    		<div class="col">
+                    	      <label for="inputEmail4">From</label>
+                              <input type="text" class="form-control" name="price_min" placeholder="">
+                            </div>
+                            <div class="col">
+                    	      <label for="inputEmail4">To</label>
+                              <input type="text" class="form-control w-75" name="price_max" placeholder="">
+                            </div>
+                        </div>
+                   </div>
+                   <div class="col">
+                        <div class="row">
+                    		<div class="col">
+                    	      <label for="inputEmail4">From</label>
+                              <input type="text"  class="form-control" placeholder="">
+                            </div>
+                            <div class="col">
+                    	       <label for="inputEmail4">To</label>
+                               <input type="text" class="form-control w-75" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                    	<label for="inputEmail4">Phases</label>
+                        <input type="text" class="form-control" placeholder="">
+                    </div>
+                    <div class="col">
+                    	<label for="inputEmail4">Type</label>
+                        <select id="inputState" name="type" class="form-control">
+                         <option>Apartment</option>
+                         <option>Villa</option>
+                         <option>Studio</option>
+                         <option>Room</option>
+                         <option>Home</option>
+                         <option>Hotel</option>
+                         <option>Office</option>
+                         <option>Flat</option>
+                         <option>Palace</option>
+                        </select>
+                    </div>
+                  </div>
+              </form>	
+    		</div>
+    	</div>
+    </section>
+<!-- end of filter -->
+<!-- start unit -->
+    <section>
+    	<div class="container">
+    		<div class="unit">
+                    <div class="row row-cols-4">
+                        <div class="col">
+                      	  <div class="card shadow">
+                           <a href=""><img src="img/unit1.jpeg" class="card-img-top" alt="..."></a>
+                           <div class="price">$320,000.00</div>
+                           <div class="card-body">
+                           	   <p>Nasr City Compounds, Degla Landmark</p>
+                               <a class="card-title">Degla Landmark Complex</a>
+                               <a class="card-title">Nasr City Compounds</a><br>
+                               <p class="card-text"><i class="fa fa-square-o fa-lg" aria-hidden="true"></i><br>135mp</p>	
+                               <p class="card-text"><i class="fa fa-bed fa-lg" aria-hidden="true"></i><br>2 Bedrooms</p>
+                               <p class="card-text"><i class="fa fa-bath fa-lg" aria-hidden="true"></i><br>2Baths</p>
+                               <p class="card-text"><i class="fa fa-building fa-lg" aria-hidden="true"></i><br>Apartment</p>
+                           </div>
+                          </div>
+                        </div>
+                        <div class="col">
+                      	  <div class="card shadow">
+                           <a href=""><img src="img/unit2.jpeg" class="card-img-top" alt="..."></a>
+                           <div class="price">$320,000.00</div>
+                           <div class="card-body">
+                           	   <p>Nasr City Compounds, Degla Landmark</p>
+                               <a class="card-title">Degla Landmark Complex</a>
+                               <a class="card-title">Nasr City Compounds</a><br>
+                               <p class="card-text"><i class="fa fa-square-o fa-lg" aria-hidden="true"></i><br>135mp</p>	
+                               <p class="card-text"><i class="fa fa-bed fa-lg" aria-hidden="true"></i><br>2 Bedrooms</p>
+                               <p class="card-text"><i class="fa fa-bath fa-lg" aria-hidden="true"></i><br>2Baths</p>
+                               <p class="card-text"><i class="fa fa-building fa-lg" aria-hidden="true"></i><br>Apartment</p>
+                           </div>
+                          </div>
+                        </div>
+                        <div class="col">
+                      	  <div class="card shadow">
+                           <a href=""><img src="img/unit3.jpeg" class="card-img-top" alt="..."></a>
+                           <div class="price">$320,000.00</div>
+                           <div class="card-body">
+                           	   <p>Nasr City Compounds, Degla Landmark</p>
+                               <a class="card-title">Degla Landmark Complex</a>
+                               <a class="card-title">Nasr City Compounds</a><br>
+                               <p class="card-text"><i class="fa fa-square-o fa-lg" aria-hidden="true"></i><br>135mp</p>	
+                               <p class="card-text"><i class="fa fa-bed fa-lg" aria-hidden="true"></i><br>2 Bedrooms</p>
+                               <p class="card-text"><i class="fa fa-bath fa-lg" aria-hidden="true"></i><br>2Baths</p>
+                               <p class="card-text"><i class="fa fa-building fa-lg" aria-hidden="true"></i><br>Apartment</p>
+                           </div>
+                          </div>
+                        </div>
+                        <div class="col">
+                      	  <div class="card shadow">
+                           <a href=""><img src="img/unit4.jpeg" class="card-img-top" alt="..."></a>
+                           <div class="price">$320,000.00</div>
+                           <div class="card-body">
+                           	   <p>Nasr City Compounds, Degla Landmark</p>
+                               <a class="card-title">Degla Landmark Complex</a>
+                               <a class="card-title">Nasr City Compounds</a><br>
+                               <p class="card-text"><i class="fa fa-square-o fa-lg" aria-hidden="true"></i><br>135mp</p>	
+                               <p class="card-text"><i class="fa fa-bed fa-lg" aria-hidden="true"></i><br>2 Bedrooms</p>
+                               <p class="card-text"><i class="fa fa-bath fa-lg" aria-hidden="true"></i><br>2Baths</p>
+                               <p class="card-text"><i class="fa fa-building fa-lg" aria-hidden="true"></i><br>Apartment</p>
+                           </div>
+                          </div>
+                        </div>
+                        <div class="col">
+                      	  <div class="card shadow">
+                           <a href=""><img src="img/unit5.jpeg" class="card-img-top" alt="..."></a>
+                           <div class="price">$320,000.00</div>
+                           <div class="card-body">
+                           	   <p>Nasr City Compounds, Degla Landmark</p>
+                               <a class="card-title">Degla Landmark Complex</a>
+                               <a class="card-title">Nasr City Compounds</a><br>
+                               <p class="card-text"><i class="fa fa-square-o fa-lg" aria-hidden="true"></i><br>135mp</p>	
+                               <p class="card-text"><i class="fa fa-bed fa-lg" aria-hidden="true"></i><br>2 Bedrooms</p>
+                               <p class="card-text"><i class="fa fa-bath fa-lg" aria-hidden="true"></i><br>2Baths</p>
+                               <p class="card-text"><i class="fa fa-building fa-lg" aria-hidden="true"></i><br>Apartment</p>
+                           </div>
+                          </div>
+                        </div>
+                        <div class="col">
+                      	  <div class="card shadow">
+                           <a href=""><img src="img/unit6.jpeg" class="card-img-top" alt="..."></a>
+                           <div class="price">$320,000.00</div>
+                           <div class="card-body">
+                           	   <p>Nasr City Compounds, Degla Landmark</p>
+                               <a class="card-title">Degla Landmark Complex</a>
+                               <a class="card-title">Nasr City Compounds</a><br>
+                               <p class="card-text"><i class="fa fa-square-o fa-lg" aria-hidden="true"></i><br>135mp</p>	
+                               <p class="card-text"><i class="fa fa-bed fa-lg" aria-hidden="true"></i><br>2 Bedrooms</p>
+                               <p class="card-text"><i class="fa fa-bath fa-lg" aria-hidden="true"></i><br>2Baths</p>
+                               <p class="card-text"><i class="fa fa-building fa-lg" aria-hidden="true"></i><br>Apartment</p>
+                           </div>
+                          </div>
+                        </div>
+                        <div class="col">
+                      	  <div class="card shadow">
+                           <a href=""><img src="img/unit2.jpeg" class="card-img-top" alt="..."></a>
+                           <div class="price">$320,000.00</div>
+                           <div class="card-body">
+                           	   <p>Nasr City Compounds, Degla Landmark</p>
+                               <a class="card-title">Degla Landmark Complex</a>
+                               <a class="card-title">Nasr City Compounds</a><br>
+                               <p class="card-text"><i class="fa fa-square-o fa-lg" aria-hidden="true"></i><br>135mp</p>	
+                               <p class="card-text"><i class="fa fa-bed fa-lg" aria-hidden="true"></i><br>2 Bedrooms</p>
+                               <p class="card-text"><i class="fa fa-bath fa-lg" aria-hidden="true"></i><br>2Baths</p>
+                               <p class="card-text"><i class="fa fa-building fa-lg" aria-hidden="true"></i><br>Apartment</p>
+                           </div>
+                          </div>
+                        </div>
+                        <div class="col">
+                      	  <div class="card shadow">
+                           <a href=""><img src="img/unit1.jpeg" class="card-img-top" alt="..."></a>
+                           <div class="price">$320,000.00</div>
+                           <div class="card-body">
+                           	   <p>Nasr City Compounds, Degla Landmark</p>
+                               <a class="card-title">Degla Landmark Complex</a>
+                               <a class="card-title">Nasr City Compounds</a><br>
+                               <p class="card-text"><i class="fa fa-square-o fa-lg" aria-hidden="true"></i><br>135mp</p>	
+                               <p class="card-text"><i class="fa fa-bed fa-lg" aria-hidden="true"></i><br>2 Bedrooms</p>
+                               <p class="card-text"><i class="fa fa-bath fa-lg" aria-hidden="true"></i><br>2Baths</p>
+                               <p class="card-text"><i class="fa fa-building fa-lg" aria-hidden="true"></i><br>Apartment</p>
+                           </div>
+                          </div>
+                        </div>
+                    </div>
+    		</div>
+    	</div>
+    </section>
+    <!-- end unit -->
+  <script type="text/javascript" src="{{STATIC_PREFIX}}js/unit.js"></script>
+  <script type="text/javascript" src="{{STATIC_PREFIX}}js/popper.min.js"></script>
+  <script type="text/javascript" src="{{STATIC_PREFIX}}js/jquery-3.6.0.min.js"></script>
+  <script type="text/javascript" src="{{STATIC_PREFIX}}js/bootstrap.js"></script>
+</body>
+</html>
