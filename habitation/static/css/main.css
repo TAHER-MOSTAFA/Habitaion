@@ -1,0 +1,246 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+/**Variables**/
+:root
+{
+    --main-back: linear-gradient(270deg, rgba(28,34,86,0.05) 0%, rgba(48,72,255,0.02) 100%);
+    --common-color: linear-gradient(90deg, #3023AE 0%, #C86DD7 100%);
+    --btn-color: #4863FC;;
+    --secondary-color:#2c4755;
+
+}
+/******Login****/
+.page{
+   background: var(--main-back);
+}
+.main-btn1{
+    height: 40px;
+    width: 150px;
+    border: 2px solid #4863FC;
+    border-radius: 20px;
+    background-color: rgba(255,255,255,0);
+    color: var(--btn-color);
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 600;
+}
+form .input_box{
+    height: 30px;
+    width: 100%;
+    position: relative;
+    margin-top: 15px;
+  }
+.input_box input
+{
+    height: 35px;
+    width: 80%;
+    outline: none;
+    border: 2px solid lightgrey;
+    border-radius: 20px;
+    padding-left: 45px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+
+  }
+  .input_box .icon{
+    position: absolute;
+    top:30px;
+    left: 15px;
+    width: 20px;
+    color: #DFE2E6;
+  }
+  .input_box label{
+    color: #6B6C6F;
+    font-family: Poppins;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.43px;
+  }
+  .input_box input::placeholder{
+    color: #E1E4E8;
+    font-family: Poppins;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.63px;
+  }
+  .field-icon {
+    float: right;
+    position: absolute;
+    top: 35px;
+    right: 100px;
+    width: 20px;
+    color: #DFE2E6;
+  }
+.btn1{
+    height: 40px;
+    width: 160px;
+    border: 2px solid #4863FC;
+    border-radius: 20px;
+    background-color: #4863FC;
+    color: white;
+}
+
+.login-info
+{
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.login-info h4{
+  color: #252529;
+  font-family: Poppins;
+  font-size: 25px;
+  font-weight: 500;
+  letter-spacing: -0.59px;
+}
+.login-info p{
+  font-size: 16px;
+  color: #414246;
+  font-family: 'Open Sans', sans-serif;
+}
+
+
+.head{
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  background-image: linear-gradient(90deg, #3023AE 0%, #C86DD7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.span-title{
+  color: #76777A;
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 500;
+}
+/*****units-details*****/
+.nav-item{
+  color: #FFFFFF;
+  font-family: ".SF NS Display";
+  font-size: 14px;
+  font-weight: 600;
+}
+.details-body{
+  background-color: #f8f8f8;
+}
+.details-body h4{
+  font-weight: bold;
+}
+.details-body p{
+  color: #333333;
+  font-size: 16px;
+  font-weight: 500;
+}
+.details-body .btn-1{
+  color: #979797;
+  font-size: 12px;
+  border: 0.84px solid #979797;
+  border-radius: 5px;
+  height: 40px;
+  width: 102.36px;
+}
+.details-body .btn-2{
+  color: #4DA1FF;
+  font-size: 12px;
+  height: 40px;
+  width: 190px;
+  border: 0.84px solid #4DA1FF;
+  border-radius: 6px;
+}
+.details-body .layer{
+  height: 40%;
+}
+.details-body .layer1{
+  width: 450px;
+  background-color: white;
+  box-shadow: 0px 3px 3px 3px #faf6f6;
+  border: 1px solid #BFBFBF;
+}
+.details-body .layer2{
+  width: 1000px;
+  background-color: white;
+  box-shadow: 3px 2px 3px 3px #faf6f6;
+  border: 1px solid #BFBFBF;
+  height: 116px;
+}
+.details-body .layer2 p{
+  font-size: 12px;
+  letter-spacing: 0;
+}
+
+
+/********Plans******/
+.plan1{
+  height: 100px;
+  background-color: #FFFFFF;
+  box-shadow: 0 2px 15px 0 rgba(0,0,0,0.1);
+}
+.plans p{
+  font-size: 14px;
+}
+
+/****video****/
+.videos p{
+  font-size: 16px;
+  font-weight: 300;
+
+}
+/******Location******/
+.location{
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  box-shadow: 0 2px 15px 0 rgba(0,0,0,0.1);
+}
+.location p{
+  color: #000000;
+  font-size: 16px;
+  letter-spacing: 0;
+  font-weight: 500;
+}
+/*******Add Unit*************/
+.drag-area{
+  width: 96%;
+  height: 270px;
+  border: 1px dashed #AFAFAF;
+  background-color: #F2F2F2;
+}
+.form-body p{
+  color: #000000;
+  font-size: 14px;
+}
+.form-body label{
+  color: #53627C;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.form-body .row .col-md-6 input::placeholder, .form-body textarea, .form-group input::placeholder{
+  color: #0A1F44;
+  font-size: 14px;
+  font-weight: 500;
+}
+.btn-cancel
+{
+  border: 0.84px solid #979797;
+  border-radius: 5px;
+  font-size: 12px;
+  color: #979797;
+}
+.btn-save{
+  border-radius: 5px;
+  background: linear-gradient(90deg, #3023AE 0%, #C86DD7 100%);
+  box-shadow: 0 2px 3px 0 rgba(62,90,102,0.16);
+  font-size: 12px;
+  color: #fff;
+}
+
+

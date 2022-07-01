@@ -458,6 +458,7 @@ margin-left: 65px;
 .header-home .landing .input_box input{
     height: 35px;
     width:384px;
+    margin-left: 280px;
     outline: none;
     border: 2px solid #DFE2E6;
     border-radius: 0px 9px 9px 0px;

@@ -24,7 +24,7 @@ class ADSerializer(serializers.ModelSerializer):
     location = LocationPointSerializer(child=serializers.DecimalField(max_digits=20, decimal_places=5))
     lord = serializers.HiddenField(default=serializers.CurrentUserDefault())
     distance = DistanceSerializer(source='distance.km', required=False, read_only=True)
-    is_fav = serializers.BooleanField(read_only=True)
+    is_fav = serializers.BooleanField(read_only=True, default=True)
     
     class Meta:
         model = AD

@@ -1,12 +1,51 @@
-{% extends "account/base.html" %}
+{% load static %}
+{% get_static_prefix as STATIC_PREFIX %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="habitation">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ STATIC_PREFIX }}/css/normalize.css">
+    <link rel="stylesheet" href="{{ STATIC_PREFIX }}/css/style.css">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="{{ STATIC_PREFIX }}/css/all.min.css">
+</head>
+<body>
+    <div class="Check-your-email">
+        <div class="container" >
+            <div class="left-side">
+                <img src="{{ STATIC_PREFIX }}/images/14.svg" alt="">
+            </div>
+            <div class="right-side">
+                <div class="header">
+                    <h3 class="logo"> Habitation</h3>
+                </div>
+                <div class="content"> 
+                        <h4>Check your email</h4>
+                        {% if messages %}
+                            {% for message in messages %}
+                            <p>{{ message }}</p>
+                            {% endfor %}
+                        {% endif %}
+                        <br> <br>
+                         <p>If you don't see the email,check other
+                         places it might be,like your junk,spam,
+                         social,or other folders.</p>
+                        <form action="#">
+                            <div class=" button-one" >
+                                <a href="{% url 'account_login' %}"><button>Login </button></a>
+                            </div>
+                        </form>    
+                </div>
 
-{% load i18n %}
+            </div>
+        </div>
+    
 
-{% block head_title %}{% translate "Verify Your E-mail Address" %}{% endblock %}
-
-{% block inner %}
-    <h1>{% translate "Verify Your E-mail Address" %}</h1>
-
-    <p>{% blocktranslate %}We have sent an e-mail to you for verification. Follow the link provided to finalize the signup process. Please contact us if you do not receive it within a few minutes.{% endblocktranslate %}</p>
-
-{% endblock %}
+    </div>
+    
+</body>
+</html>

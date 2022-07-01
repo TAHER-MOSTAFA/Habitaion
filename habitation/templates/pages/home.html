@@ -1,1 +1,204 @@
-{% extends "base.html" %}
+{% load static %}
+{% get_static_prefix as STATIC_PREFIX %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="habitation">
+    <title>Home</title>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ STATIC_PREFIX }}/css/normalize.css">
+    <link rel="stylesheet" href="{{ STATIC_PREFIX }}/css/style.css">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="{{ STATIC_PREFIX }}/css/all.min.css">
+   
+</head>
+<body>
+    <div class="home"> 
+                                                         <!-- start header -->
+            <div class="header-home">
+                <div class="background">
+                    <div class="overlay"></div>
+                    <div class="top">
+                        <a href="#">
+                            <h2 class="logo"> Habitation</h2>
+                        </a>
+                        <div class="nav">
+                            <i class="fas fa-bars toggle-menu"></i>
+                            <ul>
+                                <li> <a href="#">Homepage</a></li>
+                                <li> <a href="#">About Us</a></li>
+                                <li> <a href="#">For Rent</a></li>
+                                <li> <a href="#">For Sale</a></li>
+                                <li> <a href="#">Our Agents</a></li>
+                                <li> <a href="#">Contact Us</a></li>
+                            </ul>
+                            {% if user.is_authenticated %}
+                            <div class="form">                    
+                                <a href="{% url 'account_login' %}"><button> Login</button><a> 
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                                                                <!-- end header -->
+                                                   
+                                                                <!-- start landing -->
+                    <div class="landing">
+                        <div class="content">
+                            <div class="text">
+                                <h3>Let us Guide You Home</h3>
+                                <p>Find the house of your dreams.</p>
+                            </div>
+                            <div class="input_box">
+                                <span><p>For Rent</p>
+                                    <div class="icon"><i class="fa fa-angle-down" aria-hidden="true"></i></div>
+                                </span>
+                                
+                                <input type="text" placeholder="Search for properties or keyords.." name="seach" required>
+                                <div class="icon"><i class="fas fa-search"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>               
+            </div>
+                                                                <!-- end landing -->
+
+
+                                                                <!-- start properties -->
+            <div class="content-home">
+                <h3> Featured Properties</h3>
+                <div class="images">
+                    <div class="box">
+                        <img src="{{ STATIC_PREFIX }}/images/Card _ Home (1).svg">
+                    </div>
+                    <div class="box">
+                        <img src="{{ STATIC_PREFIX }}/images/Card _ Home 2.svg">
+                    </div>
+                    <div class="box">
+                        <img src="{{ STATIC_PREFIX }}/images/Card _ Home (3).svg">
+                    </div>
+                    <div class="box">
+                        <img src="{{ STATIC_PREFIX }}/images/Card _ Home (4).svg">
+                    </div>
+                    <div class="box">
+                        <img src="{{ STATIC_PREFIX }}/images/Card _ Home 5.svg">
+                    </div>
+                    <div class="box">
+                        <img src="{{ STATIC_PREFIX }}/images/Card _ Home 6.svg ">
+                    </div>
+                </div>
+                <div class="form">
+                    <button onclick="page('#')">All Properties </button>
+                </div>
+            </div>
+                                                                    <!-- end properties -->
+
+                                                                    <!-- start contact -->
+        
+            <div class="contact-home">
+                <div class="content">
+                    <div class="text">
+                        <h3>Want to Sell Property?</h3>
+                    </div>
+                    <div class="form">
+                        <button onclick="page('#')"> Contact Us </button>
+                    </div>
+                </div>                     
+            </div>
+                                                                       <!-- end contact-->
+
+                                                                       <!-- start background contact -->
+
+            <div class="background-contact">
+                <div class="image">
+                    <div class="content">
+                        <div class="first-content">
+                            <p class="top">FOR SALE</p>
+                            <h4>Villa With Pool For Sale</h4>
+                            <div class="price"> <span> $225,000</span></div>
+                            <p class="paragraph"> 263 S Rexford Dr,Beverly Hills,CA 90212</p>
+                            <div class="details">
+                                <div class="one">
+                                    <i class="fa fa-bed" aria-hidden="true"></i>
+                                    <span> 4 Beds</span>
+                                </div>
+                                <div class="two">
+                                    <i class="fa fa-bath" aria-hidden="true"></i>
+                                    <span> 2 Baths</span>
+                                </div>
+                                <div class="three">  
+                                    <i class="fa fa-object-group" aria-hidden="true"></i>
+                                    <span> 980 SqFt</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>               
+            </div>
+ 
+                                                                    <!-- end background contact -->
+
+                                                                    <!-- start footer -->
+            <div class="footer">
+                <div class="content">
+                    <div class="footer-left">
+                        <a href="#">Habitation </a>
+                        <p>Real Estate Egypt website has been established to provide all the details 
+                            and information about the Egyptian real estate market.</p>
+                            <div class="social">
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-facebook-square"></i></a>
+                                <a href="#"><i class="fab fa-twitter-square"></i></a>
+                            </div>
+                    </div>
+                    <div class="r-footer">
+                        <ul class="footer-right">
+                            <div>
+                                <li>
+                                    <h2>SEVICES</h2>
+                                </li>
+                                    <ul class="box">
+                                          <li><a href="#">Blog</a></li>
+                                       <li><a href="#">FAQ</a></li>
+                                    </ul>
+                            </div>
+                            <div>
+                                <li>
+                                    <h2>COMPANY</h2>
+                                </li>                 
+                                    <ul class="box">
+                                      <li><a href="#">About</a></li>
+                                      <li><a href="#">Terms</a></li>
+                                      <li><a href="#">Privacy Policy</a></li>
+                                      <li><a href="#">Careers</a></li>
+                                    </ul>
+                            </div>
+                            <div>
+                                <li>
+                                    <h2>CONTACT US</h2>
+                                </li>
+                                   <ul class="box">
+                                       <li><a class="active" href="#">We’re Always Happy to Help</a></li>
+                                       <li><a href="#">mail@habitation.com</a></li>
+                                    </ul>
+                            </div>                              
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>Copyright &copy; 2021. Crafted with love.</p>
+                </div>
+            </div>
+
+                                                                    <!-- end footer -->
+
+    </div>
+    <script src="{{ STATIC_PREFIX }}/js/main.js" ></script>
+</body>
+</html>
+
+
+

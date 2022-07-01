@@ -4,7 +4,7 @@ from model_utils import Choices
 from model_utils.models import TimeStampedModel
 from django.core.validators import MinValueValidator
 from django.contrib.postgres.fields import ArrayField
-
+from decimal import Decimal
 User = get_user_model()
 
 
@@ -40,6 +40,13 @@ class AD(TimeStampedModel):
 
     def __str__(self) -> str:
         return self.name
+    
+    @property
+    def cash_price(self):
+        return Decimal(self.price * (1-(self.cash_discount/100))).quantize(Decimal('1.00'))
+    
+    # @property
+    # def is_fav
 
 class Spec(TimeStampedModel):
     label = models.CharField(max_length=15)

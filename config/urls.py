@@ -9,7 +9,7 @@ from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 
 
 urlpatterns = [
-    path("", TemplateView.as_view(template_name="pages/home.html"), name="home"),
+    path("", include("habitation.ads.urls")),
     path(
         "about/", TemplateView.as_view(template_name="pages/about.html"), name="about"
     ),

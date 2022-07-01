@@ -1,0 +1,257 @@
+{% load static %}
+{% get_static_prefix as STATIC_PREFIX %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+    integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+    crossorigin=""/>
+     <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+    integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+    crossorigin=""></script>
+
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <title>Details</title>
+    <link rel="stylesheet" href="{{ STATIC_PREFIX }}css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ STATIC_PREFIX }}css/main.css">
+    <link rel="stylesheet" href="{{ STATIC_PREFIX }}css/all.min.css">
+    
+</head>
+<body>
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <div class="container-fluid mx-3">
+          <a class="navbar-brand head" href="#">Habitation</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Homepage</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">For Rent</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">For Sale</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Our Agents</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contact Us</a>
+              </li>
+            </ul>
+            <div class="user d-flex justify-content-between align-items-center">
+                <a href="#"><i class="fa fa-bell fa-lg mr-5 mb-1 text-dark" aria-hidden="true"></i></a>
+                <img class=" img-icon rounded-circle w-25" src="{{ STATIC_PREFIX }}/images/download.jpg">
+             <a href="#" style="text-decoration: none; color: #333333;">Ahmed</a>
+          </div>
+          </div>
+        </div>
+    </nav>
+    {% comment %} <!--------Body-------> {% endcomment %}
+    <div class="details-body mb-5">
+      <div class="container-fluid">
+        <div class="buttons py-3 d-flex justify-content-end">
+          <button type="button" class="btn-1 mx-2">Edit</button>
+          <button type="button" class="btn-2">Share with your Brockers</button>
+        </div>
+        <div class="details-content position-relative">
+          <div class="row">
+            <div class="col-md-5">
+              <h2 class="mx-3 mb-4">{{ad.name}}</h2>
+              <p class="mx-3">{{ad.description}}</p>
+              <p class="mx-3">Services:<br> 
+                The project involves around 3800 residential units with spaces ranges from 65 to 158 sqm along with
+                an enormous commercial mall. Moreover, the project offers a wide range of activities
+                and services that include swimming pools, a sports gym, restaurants, cafes and retail stores that satisfy everyone's need.</p>
+            </div>
+            <div class="col-md-7 text-center">
+              <img src="{{ MEDIA_URL }}{{ad.images.first.image}}" class="popup" style="cursor: pointer;">
+            </div>
+          </div>
+        </div>
+        <div class="layer position-absolute my-5  " style="bottom:-180px;left:25%">
+          <div class="layer1 d-flex justify-content-around pt-3">
+            <div class="layer1-left">
+              <p>Total</p>
+              <p class="fw-bold fs-5 text-dark">EGP{{ad.price}}</p>
+            </div>
+            <div class="layer1-right">
+              <p>In cash</p>
+              <p class="fw-bold fs-5 text-danger">EGP{{ad.cash_price}}</p>
+            </div>
+          </div>
+        <div class="layer2 text-center  align-items-center d-flex ">
+          <div class="px-3">
+            <img src="{{ STATIC_PREFIX }}/images/img1.svg" style="height: 80px;width: 100px" >
+            <p>Front property</p>
+          </div>
+          <div class="px-3">
+            <img src="{{ STATIC_PREFIX }}/images/img2.svg" style="height: 81px;width: 30px">
+            <p>Bed Rooms 9</p>
+          </div>
+          <div class="px-3">
+            <img src="{{ STATIC_PREFIX }}/images/img3.svg" style="height: 81px;width: 100px">
+            <p>20</p>
+          </div>
+          <div class="px-3">
+            <img src="{{ STATIC_PREFIX }}/images/img4.svg" style="height: 81px;width: 100px">
+            <p>200 M2</p>
+          </div>
+          <div class="px-3">
+            <img src="{{ STATIC_PREFIX }}/images/img5.svg" style="height: 81px;width: 100px">
+            <p>North</p>
+          </div>
+          <div class="px-3">
+            <img src="{{ STATIC_PREFIX }}/images/img6.svg" style="height: 81px;width: 100px">
+            <p>Floor 9</p>
+          </div>
+          <div class="px-3">
+            <img src="{{ STATIC_PREFIX }}/images/img7.svg" style="height: 81px;width: 30px">
+            <p>Rooms 9</p>
+          </div>
+          
+
+          
+
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content modal-lg">
+          <img id="popup-img" src="{{STATIC_PREFIX}}images/Bitmap.svg">
+        </div>
+      </div>
+    </div>
+
+    <div class="plans mx-3 my-5 ">
+        <div class="container-fluid">
+          <h5 class="py-5">Plans (10 Plan)</h5>
+          <p class="py-3">Default Plan</p>
+          <div class="plan1 bg-white d-flex align-items-center py-5">
+            <table class="table table-borderless text-center ">
+              <tr class="fw-bold">
+                <td>First Installment</td>
+                <td>Second Installment</td>
+                <td>Third Installment</td>
+                <td>Fourth Installment</td>
+                <td>Fifth Installment</td>   
+              </tr>
+              <tr class="fw-light">
+                <td>0</td>
+                <td>100,000</td>
+                <td>10,000</td>
+                <td>50,000,000</td>
+                <td>700,000</td>
+              </tr>
+            </table>
+          </div>
+          <p class="py-3">Second Plan</p>
+          <div class="plan1 bg-white d-flex align-items-center">
+            <table class="table table-borderless text-center ">
+              <tr class="fw-bold">
+                <td>First Installment</td>
+                <td>Second Installment</td>
+                <td>Third Installment</td>
+                <td>Fourth Installment</td>
+                <td>Fifth Installment</td>   
+              </tr>
+              <tr class="fw-light">
+                <td>0</td>
+                <td>100,000</td>
+                <td>10,000</td>
+                <td>50,000,000</td>
+                <td>700,000</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+    </div>
+
+    <div class="videos mx-3 pt-5">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-5">
+            <p>Project Video</p>
+            <div class="card">
+              <iframe width="500" height="350" src="https://www.youtube.com/embed/EZswVY1hmVU" class="mx-auto"
+              title="YouTube video player" style="border: 10px solid white;  box-shadow: 0 4px 14px 0 rgba(0,0,0,0.06);" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </div>
+          <div class="col-md-7 ">
+            <p>Project Gallery</p>
+            <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+              <div class="carousel-inner" style="height:350px; border: 10px solid white;box-shadow: 0 4px 14px 0 rgba(0,0,0,0.06);">
+                {% for img in ad.images.all %}
+                <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %}">
+                  <img src="{{ MEDIA_URL }}{{img.image}}" class="d-block w-100" >
+                </div>
+                {% endfor %}
+                
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="location my-5 mx-4 d-flex justify-content-around  align-items-center">
+      <p class="w-25 px-1">The project enjoys an outstanding location in Nasr City that is only a few minutes away from 90th Street.<br><br>
+      5th Settlement, through Al Mosheer Tantawy Axis. Also, it is very close to Mokattam, Maadi, Heliopolis, Ring Road and Ain Sokhna</p>
+        <iframe class="my-5" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6911.760012607725!2d31.368372780309702!3d29.982878302667462!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14583b1c6747a543%3A0xfaea1334093f58e1!2sLE%20REVE%20Compound!5e0!3m2!1sen!2seg!4v1652365744733!5m2!1sen!2seg"
+         width="650" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div tabindex="650" id="map" style="height: 650px; width: 650;"></div>
+    {{ad.location.coords|json_script:"coords"}}
+    <script>
+
+      // Create the map
+      var map = L.map('map').setView([31.37146277849591, 31.0507170657075], 7);
+
+      // Set up the OSM layer
+      L.tileLayer(
+      'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '© Habitation'
+    }).addTo(map);
+    var coords = JSON.parse(document.getElementById('coords').textContent);
+    var marker = L.marker(coords).addTo(map);
+
+
+    </script>
+     
+    <script src="{{ STATIC_PREFIX }}js/jquery-3.6.0.min.js"></script>  
+    <script src="{{ STATIC_PREFIX }}js/script.js"></script>
+    <script src="{{ STATIC_PREFIX }}js/popper.min.js"></script>
+    <script src="{{ STATIC_PREFIX }}js/bootstrap.min.js"></script>
+</body>
+
+
+
+</html>
