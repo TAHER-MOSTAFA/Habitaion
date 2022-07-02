@@ -196,7 +196,7 @@
                       {% for ad in ads %}
                         <div class="col">
                       	  <div class="card shadow">
-                           <a href=""><img src="{{ MEDIA_URL }}{{ad.images.first.image}}" width="290px" height="210px" class="card-img-top" alt="..."></a>
+                           <a href="{% url 'ads:ad-details' ad.id %}"><img src="{{ MEDIA_URL }}{{ad.images.first.image}}" width="290px" height="210px" class="card-img-top" alt="..."></a>
                            <div class="price">£{{ad.price}}</div>
                            <div class="card-body">
                            	   <p>{{ad.user}}</p>
