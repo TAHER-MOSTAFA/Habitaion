@@ -28,7 +28,6 @@ class SearchView(TemplateView):
     def get_queryset(self):
         filters = dict()
         data = self.request.GET
-        print(data)
         
         qs =  AD.objects.filter(available=True)
 
@@ -48,8 +47,8 @@ class SearchView(TemplateView):
                 pt,
                 data.get("within", ADS_WITHIN)
                 )
-            print(filters)
             return qs.filter(**filters).annotate(distance=Distance('location', pt)).order_by("distance")
+        print(filters)
 
         return qs.filter(**filters)
 
@@ -57,5 +56,12 @@ class SearchView(TemplateView):
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(**kwargs)
-        self.get_queryset()
+        context['ads'] = self.get_queryset()
         return context
+    
+class AddAdView(TemplateView):
+    template_name = "ads/add-unit.html"
+
+    # def get_context_data(self, *args, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     return context

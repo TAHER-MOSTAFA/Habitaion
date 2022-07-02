@@ -48,18 +48,20 @@
                                                                 <!-- start landing -->
                     <div class="landing">
                         <div class="content">
-                            <div class="text">
-                                <h3>Let us Guide You Home</h3>
-                                <p>Find the house of your dreams.</p>
-                            </div>
-                            <div class="input_box">
-                                <span><p>For Rent</p>
-                                    <div class="icon"><i class="fa fa-angle-down" aria-hidden="true"></i></div>
-                                </span>
-                                
-                                <input type="text" placeholder="Search for properties or keyords.." name="seach" required>
-                                <div class="icon"><i class="fas fa-search"></i></div>
-                            </div>
+                            <a href={% url 'ads:search' %}>
+                                <div class="text">
+                                    <h3>Let us Guide You Home</h3>
+                                    <p>Find the house of your dreams.</p>
+                                </div>
+                                <div class="input_box">
+                                    <span><p>For Rent</p>
+                                        <div class="icon"><i class="fa fa-angle-down" aria-hidden="true"></i></div>
+                                    </span>
+                                    
+                                    <input type="text" placeholder="Search for properties or keyords.." name="seach" required>
+                                    <div class="icon"><i class="fas fa-search"></i></div>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </div>               
@@ -91,7 +93,7 @@
                     </div>
                 </div>
                 <div class="form">
-                    <button onclick="page('#')">All Properties </button>
+                    <a href="{% url 'ads:search' %}"><button>All Properties </button></a>
                 </div>
             </div>
                                                                     <!-- end properties -->

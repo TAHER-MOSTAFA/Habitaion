@@ -46,7 +46,7 @@
     	       <h6>properties</h6>
     	     </div>
              <div class="col d-flex justify-content-end">
-    	      <button type="button" class="btn btn-info">  <i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i>  Add Property</button>
+    	      <a href="{% url 'ads:add-ad' %}"><button type="button" class="btn btn-info">  <i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i>  Add Property</button></a>
     	     </div>
            </div>
         </div>
@@ -65,7 +65,7 @@
                       <div id="menu" class="sidemenu">
                         <h5>Advanced Filters</h5>
                         <hr>
-                        <form class="filter1" action="£">
+                        <form class="filter1" method="GET" action="" >
                            <div class="row">
                                <div class="col-6">
                                    <h6>Price</h6>
@@ -101,7 +101,7 @@
                            <div class="row">
                                <div class="col-6">
                                     <label>Room NO</label>
-                                    <input type="text" class="form-control">
+                                    <input type="text" name="rooms" class="form-control">
                                 </div>
                                 <div class="col-6">
                                      <label>Floor No</label>
@@ -131,7 +131,7 @@
                                   </div>
                               </div>
                               <hr><button type="button" class="btn btn-outline-dark btn1" onclick="closeFunction()">Cancel</button>
-                              <button type="button" class="btn btn-info btn2">Save</button>
+                              <button type="submit" class="btn btn-info btn2">Search</button>
                     </form>
                     <a href="" class="closebtn" onclick="closeFunction()"><i class="fa fa-times" aria-hidden="true"></i></a>
                  </div>
@@ -193,126 +193,22 @@
     	<div class="container">
     		<div class="unit">
                     <div class="row row-cols-4">
+                      {% for ad in ads %}
                         <div class="col">
                       	  <div class="card shadow">
-                           <a href=""><img src="img/unit1.jpeg" class="card-img-top" alt="..."></a>
-                           <div class="price">$320,000.00</div>
+                           <a href=""><img src="{{ MEDIA_URL }}{{ad.images.first.image}}" width="290px" height="210px" class="card-img-top" alt="..."></a>
+                           <div class="price">£{{ad.price}}</div>
                            <div class="card-body">
-                           	   <p>Nasr City Compounds, Degla Landmark</p>
-                               <a class="card-title">Degla Landmark Complex</a>
-                               <a class="card-title">Nasr City Compounds</a><br>
-                               <p class="card-text"><i class="fa fa-square-o fa-lg" aria-hidden="true"></i><br>135mp</p>	
-                               <p class="card-text"><i class="fa fa-bed fa-lg" aria-hidden="true"></i><br>2 Bedrooms</p>
-                               <p class="card-text"><i class="fa fa-bath fa-lg" aria-hidden="true"></i><br>2Baths</p>
-                               <p class="card-text"><i class="fa fa-building fa-lg" aria-hidden="true"></i><br>Apartment</p>
+                           	   <p>{{ad.user}}</p>
+                               <a class="card-title">{{ad.name}}</a><br>
+                               <p class="card-text"><i class="fa fa-square-o fa-lg" aria-hidden="true"></i><br>{{ad.area}}mp</p>	
+                               <p class="card-text"><i class="fa fa-bed fa-lg" aria-hidden="true"></i><br>{{ad.baths_no}} Bedrooms</p>
+                               <p class="card-text"><i class="fa fa-bath fa-lg" aria-hidden="true"></i><br>{{ad.bed_rooms_no}}Baths</p>
+                               <p class="card-text"><i class="fa fa-building fa-lg" aria-hidden="true"></i><br>{{ad.type}}</p>
                            </div>
                           </div>
                         </div>
-                        <div class="col">
-                      	  <div class="card shadow">
-                           <a href=""><img src="img/unit2.jpeg" class="card-img-top" alt="..."></a>
-                           <div class="price">$320,000.00</div>
-                           <div class="card-body">
-                           	   <p>Nasr City Compounds, Degla Landmark</p>
-                               <a class="card-title">Degla Landmark Complex</a>
-                               <a class="card-title">Nasr City Compounds</a><br>
-                               <p class="card-text"><i class="fa fa-square-o fa-lg" aria-hidden="true"></i><br>135mp</p>	
-                               <p class="card-text"><i class="fa fa-bed fa-lg" aria-hidden="true"></i><br>2 Bedrooms</p>
-                               <p class="card-text"><i class="fa fa-bath fa-lg" aria-hidden="true"></i><br>2Baths</p>
-                               <p class="card-text"><i class="fa fa-building fa-lg" aria-hidden="true"></i><br>Apartment</p>
-                           </div>
-                          </div>
-                        </div>
-                        <div class="col">
-                      	  <div class="card shadow">
-                           <a href=""><img src="img/unit3.jpeg" class="card-img-top" alt="..."></a>
-                           <div class="price">$320,000.00</div>
-                           <div class="card-body">
-                           	   <p>Nasr City Compounds, Degla Landmark</p>
-                               <a class="card-title">Degla Landmark Complex</a>
-                               <a class="card-title">Nasr City Compounds</a><br>
-                               <p class="card-text"><i class="fa fa-square-o fa-lg" aria-hidden="true"></i><br>135mp</p>	
-                               <p class="card-text"><i class="fa fa-bed fa-lg" aria-hidden="true"></i><br>2 Bedrooms</p>
-                               <p class="card-text"><i class="fa fa-bath fa-lg" aria-hidden="true"></i><br>2Baths</p>
-                               <p class="card-text"><i class="fa fa-building fa-lg" aria-hidden="true"></i><br>Apartment</p>
-                           </div>
-                          </div>
-                        </div>
-                        <div class="col">
-                      	  <div class="card shadow">
-                           <a href=""><img src="img/unit4.jpeg" class="card-img-top" alt="..."></a>
-                           <div class="price">$320,000.00</div>
-                           <div class="card-body">
-                           	   <p>Nasr City Compounds, Degla Landmark</p>
-                               <a class="card-title">Degla Landmark Complex</a>
-                               <a class="card-title">Nasr City Compounds</a><br>
-                               <p class="card-text"><i class="fa fa-square-o fa-lg" aria-hidden="true"></i><br>135mp</p>	
-                               <p class="card-text"><i class="fa fa-bed fa-lg" aria-hidden="true"></i><br>2 Bedrooms</p>
-                               <p class="card-text"><i class="fa fa-bath fa-lg" aria-hidden="true"></i><br>2Baths</p>
-                               <p class="card-text"><i class="fa fa-building fa-lg" aria-hidden="true"></i><br>Apartment</p>
-                           </div>
-                          </div>
-                        </div>
-                        <div class="col">
-                      	  <div class="card shadow">
-                           <a href=""><img src="img/unit5.jpeg" class="card-img-top" alt="..."></a>
-                           <div class="price">$320,000.00</div>
-                           <div class="card-body">
-                           	   <p>Nasr City Compounds, Degla Landmark</p>
-                               <a class="card-title">Degla Landmark Complex</a>
-                               <a class="card-title">Nasr City Compounds</a><br>
-                               <p class="card-text"><i class="fa fa-square-o fa-lg" aria-hidden="true"></i><br>135mp</p>	
-                               <p class="card-text"><i class="fa fa-bed fa-lg" aria-hidden="true"></i><br>2 Bedrooms</p>
-                               <p class="card-text"><i class="fa fa-bath fa-lg" aria-hidden="true"></i><br>2Baths</p>
-                               <p class="card-text"><i class="fa fa-building fa-lg" aria-hidden="true"></i><br>Apartment</p>
-                           </div>
-                          </div>
-                        </div>
-                        <div class="col">
-                      	  <div class="card shadow">
-                           <a href=""><img src="img/unit6.jpeg" class="card-img-top" alt="..."></a>
-                           <div class="price">$320,000.00</div>
-                           <div class="card-body">
-                           	   <p>Nasr City Compounds, Degla Landmark</p>
-                               <a class="card-title">Degla Landmark Complex</a>
-                               <a class="card-title">Nasr City Compounds</a><br>
-                               <p class="card-text"><i class="fa fa-square-o fa-lg" aria-hidden="true"></i><br>135mp</p>	
-                               <p class="card-text"><i class="fa fa-bed fa-lg" aria-hidden="true"></i><br>2 Bedrooms</p>
-                               <p class="card-text"><i class="fa fa-bath fa-lg" aria-hidden="true"></i><br>2Baths</p>
-                               <p class="card-text"><i class="fa fa-building fa-lg" aria-hidden="true"></i><br>Apartment</p>
-                           </div>
-                          </div>
-                        </div>
-                        <div class="col">
-                      	  <div class="card shadow">
-                           <a href=""><img src="img/unit2.jpeg" class="card-img-top" alt="..."></a>
-                           <div class="price">$320,000.00</div>
-                           <div class="card-body">
-                           	   <p>Nasr City Compounds, Degla Landmark</p>
-                               <a class="card-title">Degla Landmark Complex</a>
-                               <a class="card-title">Nasr City Compounds</a><br>
-                               <p class="card-text"><i class="fa fa-square-o fa-lg" aria-hidden="true"></i><br>135mp</p>	
-                               <p class="card-text"><i class="fa fa-bed fa-lg" aria-hidden="true"></i><br>2 Bedrooms</p>
-                               <p class="card-text"><i class="fa fa-bath fa-lg" aria-hidden="true"></i><br>2Baths</p>
-                               <p class="card-text"><i class="fa fa-building fa-lg" aria-hidden="true"></i><br>Apartment</p>
-                           </div>
-                          </div>
-                        </div>
-                        <div class="col">
-                      	  <div class="card shadow">
-                           <a href=""><img src="img/unit1.jpeg" class="card-img-top" alt="..."></a>
-                           <div class="price">$320,000.00</div>
-                           <div class="card-body">
-                           	   <p>Nasr City Compounds, Degla Landmark</p>
-                               <a class="card-title">Degla Landmark Complex</a>
-                               <a class="card-title">Nasr City Compounds</a><br>
-                               <p class="card-text"><i class="fa fa-square-o fa-lg" aria-hidden="true"></i><br>135mp</p>	
-                               <p class="card-text"><i class="fa fa-bed fa-lg" aria-hidden="true"></i><br>2 Bedrooms</p>
-                               <p class="card-text"><i class="fa fa-bath fa-lg" aria-hidden="true"></i><br>2Baths</p>
-                               <p class="card-text"><i class="fa fa-building fa-lg" aria-hidden="true"></i><br>Apartment</p>
-                           </div>
-                          </div>
-                        </div>
+                        {% endfor %}
                     </div>
     		</div>
     	</div>

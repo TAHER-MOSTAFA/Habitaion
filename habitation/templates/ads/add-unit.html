@@ -1,0 +1,143 @@
+{% load static %}
+{% get_static_prefix as STATIC_PREFIX %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <title>Add Details</title>
+    <link rel="stylesheet" href="{{STATIC_PREFIX}}css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{STATIC_PREFIX}}css/main.css">
+    <link rel="stylesheet" href="{{STATIC_PREFIX}}css/all.min.css">
+    
+</head>
+<body>
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <div class="container-fluid mx-3">
+          <a class="navbar-brand head" href="#">Habitation</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Homepage</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">For Rent</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">For Sale</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Our Agents</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contact Us</a>
+              </li>
+            </ul>
+            <div class="user d-flex justify-content-between align-items-center">
+                <a href="#"><i class="fa fa-bell fa-lg mr-5 mb-1 text-dark" aria-hidden="true"></i></a>
+                <img class=" img-icon rounded-circle w-25" src="{{STATIC_URL}}img/download.jpg">
+             <a href="#" style="text-decoration: none; color: #333333;">Hi</a>
+          </div>
+          </div>
+        </div>
+    </nav>
+
+    <!---form-body-->
+    <div class="add-form py-5 my-4" style="background-color:#F8F8F8">
+      <div class="container">
+          <div class="form-head d-flex justify-content-between  my-3">
+            <p>Add Unit</p>
+            <button class="btn btn-outline-danger border-1 px-5 py-1  ">Delete</button>
+          </div>
+          <div class="form-body px-5 py-4 bg-white rounded-5" style=" border: 1px solid #F0F3F4;">
+            <p>Basic info</p>
+            <div class="form-group row px-0 mx-0 col-md-6">
+              <label for="name" class="mb-2">Unity Name</label>
+              <input type="text" class="form-control mb-3" id="name" placeholder="Skyline Complex">
+            </div>
+            
+              <div class="row">
+                <div class="col-md-6">
+                  <label for="descr" class="mb-2">Description</label><br>
+                  <textarea class="form-control mb-3" id="descr" rows="5"></textarea>
+                </div>
+                <div class=" col-md-6">
+                  <label for="Stat-name" class="mb-2">Status</label><br>
+                  <input type="text" class="form-control mb-3" id="Stat-name" placeholder="Free">
+                </div>
+                <p>Price info</p>
+                <div class=" col-md-6">
+                  <label for="price" class="mb-2">Unit Price</label><br>
+                  <input type="number" class="form-control mb-3" id="price" placeholder="1000">
+                </div>
+                <div class=" col-md-6">
+                  <label for="discount" class="mb-2">Cash percentage discount </label><br>
+                  <input type="number" class="form-control mb-3" id="discount" placeholder="10">
+                </div>
+                <p>Unit details</p>
+                <div class=" col-md-6">
+                  <label for="type" class="mb-2">Type</label><br>
+                  <input type="text" class="form-control mb-3" id="type" placeholder="Appartment">
+                </div>
+                <div class=" col-md-6">
+                  <label for="area" class="mb-2">Area</label><br>
+                  <input type="number" class="form-control mb-3" id="area" placeholder="1000">
+                </div>
+                <div class=" col-md-6">
+                  <label for="bath" class="mb-2">No of bathrooms</label><br>
+                  <input type="number" class="form-control mb-3" id="bath" placeholder="10">
+                </div>
+                <div class=" col-md-6">
+                  <label for="rooms" class="mb-2">No of bedrooms</label><br>
+                  <input type="number" class="form-control mb-3" id="rooms" placeholder="10">
+                </div>
+                <div class=" col-md-6">
+                  <label for="floor" class="mb-2">Floor NO</label><br>
+                  <input type="number" class="form-control mb-3" id="floor" placeholder="10">
+                </div>
+                <div class="col-md-6">
+                  <label for="location" class="mb-2">Location</label><br>
+                  <input type="text" class="form-control mb-3" id="location" placeholder="waghaa">
+                </div>
+                <div class="col-md-6">
+                  <label for="direction" class="mb-2">Direction</label><br>
+                  <input type="text" class="form-control mb-3" id="direction" placeholder="Frontal">
+                </div>
+                <div class="col-md-6">
+                  <label for="direction" class="mb-2">Deliviery time</label><br>
+                  <input type="text" class="form-control mb-3" id="direction" placeholder="1 year">
+                </div>
+                <p>Unit Images</p>
+                <div class="drag-area mx-auto text-center py-5 d-flex flex-column">
+                  <div class="icon my-auto"><i class="fas fa-cloud-download-alt fs-1"></i></div>
+                  <input type="file" id="file_upload" class="mx-auto" style="font-size: 11px; ">
+                  
+
+                </div>
+                <div class="form-btns d-flex justify-content-end mt-4">
+                  <button class="btn btn-cancel mx-3 px-5 py-2">Cancel</button>
+                  <button class="btn btn-save px-5 py-2" type="submit">Save</button>
+                  
+                </div>
+              </div>
+          </div>
+          
+       
+      </div>
+    </div>
+    <script src="{{STATIC_PREFIX}}js/jquery-3.6.0.min.js"></script>  
+    <script src="{{STATIC_PREFIX}}js/script.js"></script>
+    <script src="{{STATIC_PREFIX}}js/popper.min.js"></script>
+    <script src="{{STATIC_PREFIX}}  js/bootstrap.min.js"></script>
+</body>
+</html>
